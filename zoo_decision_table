@@ -1,0 +1,79 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.DecisionTable -X 1 -S "weka.attributeSelection.BestFirst -D 1 -N 5"
+Relation:     zoo
+Instances:    99
+Attributes:   18
+              animal
+              hair
+              feathers
+              eggs
+              milk
+              airborne
+              aquatic
+              predator
+              toothed
+              backbone
+              breathes
+              venomous
+              fins
+              legs
+              tail
+              domestic
+              catsize
+              type
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Decision Table:
+
+Number of training instances: 99
+Number of Rules : 18
+Non matches covered by Majority class.
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 132
+	Merit of best subset found:   94.949
+Evaluation (for feature selection): CV (leave one out) 
+Feature set: 5,6,13,14,15,18
+
+Time taken to build model: 0.12 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances          84               84.8485 %
+Incorrectly Classified Instances        15               15.1515 %
+Kappa statistic                          0.7958
+Mean absolute error                      0.1242
+Root mean squared error                  0.2067
+Relative absolute error                 56.7198 %
+Root relative squared error             62.6908 %
+Total Number of Instances               99     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.975    0.102    0.867      0.975    0.918      0.861    0.992     0.988     mammal
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     fish
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     bird
+                 0.300    0.056    0.375      0.300    0.333      0.270    0.901     0.447     invertebrate
+                 0.750    0.022    0.750      0.750    0.750      0.728    0.982     0.741     insect
+                 1.000    0.010    0.750      1.000    0.857      0.862    0.991     0.667     amphibian
+                 0.000    0.011    0.000      0.000    0.000      -0.023   0.910     0.302     reptile
+Weighted Avg.    0.848    0.049    0.805      0.848    0.824      0.792    0.980     0.873     
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g   <-- classified as
+ 39  0  0  0  0  0  1 |  a = mammal
+  0 13  0  0  0  0  0 |  b = fish
+  0  0 20  0  0  0  0 |  c = bird
+  5  0  0  3  2  0  0 |  d = invertebrate
+  0  0  0  2  6  0  0 |  e = insect
+  0  0  0  0  0  3  0 |  f = amphibian
+  1  0  0  3  0  1  0 |  g = reptile
+

@@ -1,0 +1,90 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     zoo
+Instances:    99
+Attributes:   18
+              animal
+              hair
+              feathers
+              eggs
+              milk
+              airborne
+              aquatic
+              predator
+              toothed
+              backbone
+              breathes
+              venomous
+              fins
+              legs
+              tail
+              domestic
+              catsize
+              type
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+feathers = false
+|   milk = true: mammal (40.0)
+|   milk = false
+|   |   backbone = true
+|   |   |   fins = false
+|   |   |   |   tail = false: amphibian (2.0)
+|   |   |   |   tail = true: reptile (6.0/1.0)
+|   |   |   fins = true: fish (13.0)
+|   |   backbone = false
+|   |   |   airborne = false
+|   |   |   |   predator = true: invertebrate (8.0)
+|   |   |   |   predator = false
+|   |   |   |   |   legs <= 2: invertebrate (2.0)
+|   |   |   |   |   legs > 2: insect (2.0)
+|   |   |   airborne = true: insect (6.0)
+feathers = true: bird (20.0)
+
+Number of Leaves  : 	9
+
+Size of the tree : 	17
+
+
+Time taken to build model: 0.02 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances          92               92.9293 %
+Incorrectly Classified Instances         7                7.0707 %
+Kappa statistic                          0.9066
+Mean absolute error                      0.0229
+Root mean squared error                  0.1362
+Relative absolute error                 10.454  %
+Root relative squared error             41.3081 %
+Total Number of Instances               99     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     mammal
+                 1.000    0.012    0.929      1.000    0.963      0.958    0.994     0.929     fish
+                 1.000    0.000    1.000      1.000    1.000      1.000    1.000     1.000     bird
+                 0.900    0.034    0.750      0.900    0.818      0.800    0.988     0.839     invertebrate
+                 0.625    0.022    0.714      0.625    0.667      0.641    0.923     0.690     insect
+                 0.667    0.000    1.000      0.667    0.800      0.812    0.828     0.677     amphibian
+                 0.600    0.011    0.750      0.600    0.667      0.655    0.787     0.470     reptile
+Weighted Avg.    0.929    0.007    0.930      0.929    0.927      0.922    0.976     0.913     
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g   <-- classified as
+ 40  0  0  0  0  0  0 |  a = mammal
+  0 13  0  0  0  0  0 |  b = fish
+  0  0 20  0  0  0  0 |  c = bird
+  0  0  0  9  1  0  0 |  d = invertebrate
+  0  0  0  3  5  0  0 |  e = insect
+  0  0  0  0  0  2  1 |  f = amphibian
+  0  1  0  0  1  0  3 |  g = reptile
+
